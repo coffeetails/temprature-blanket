@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+.views {
+  display: flex;
+  flex-direction: column;
+}
+
+.views__wrapper {
+  padding: 0 10%;
+  max-width: 800px;
+}
