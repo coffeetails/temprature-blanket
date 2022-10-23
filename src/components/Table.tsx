@@ -1,22 +1,31 @@
-import React from 'react';
+import { Key } from 'react';
+import { Day, Weather } from '../models/models';
 import './table.scss';
 
-function Table() {
+interface Props {
+	displayWeather: Weather | null;
+}
+
+function Table({displayWeather}: Props) {
   
   function displayTempratures() {
-    // let weatherData = localStorage.getItem(weatherData);
-      // weatherData = weatherData.days.map((day, index) => {
-      // return (
-      //   <tr key={index} >
-      //     <td>{day.datetime}</td>
-      //     <td>{day.hours[13].datetime.substring(0, 5)}</td>
-      //     <td>{day.hours[13].temp}°</td>
-      //     <td><input type="checkbox" /></td>
-      //   </tr>
-      // )
-    // });
-    // console.log("table.js - weatherData",Date(), weatherData);
-    // return weatherData; 
+    const weatherData = localStorage.getItem("weatherData");
+    console.log("table.js - displayWeather", displayWeather);
+    if(weatherData) {
+      const parsedWeatherData = JSON.parse(weatherData);
+      const mappedData = parsedWeatherData.days.map((day: Day, index: Key) => {
+      // const mappedData = parsedWeatherData.days.map((day: { datetime: string; hours: { temp: number; datetime: string; }[]; }, index: Key) => {
+        return (
+          <tr key={index} >
+            <td>{day.datetime}</td>
+            <td>{day.hours[13].datetime.substring(0, 5)}</td>
+            <td>{day.hours[13].temp}°</td>
+            <td><input type="checkbox" /></td>
+          </tr>
+        )
+      });
+      return mappedData; 
+    }
   }
 
   return (
