@@ -1,40 +1,36 @@
-import React from 'react';
-import './form.css';
+import { useState } from 'react';
+import './form.scss';
 import { apiKey } from '../key';
+import { Day, Hours, Weather } from '../models/models';
+import { useNavigate } from 'react-router-dom';
+import { setWeatherData } from './formFunctions';
 
-function Form() {
+interface Props {
+	setDisplayWeather: (displayWeather: Weather | null) => void;
+}
+
+
+function Form({setDisplayWeather}: Props) {
+  const navigate = useNavigate();
+  const [location, setLocation] = useState("arvika");
+  const [timePeriod, setTimePeriod] = useState("last7days");
+  const [unit, setUnit] = useState("metric");
+  const [userApiKey, setUserApiKey] = useState("");
+
   const baseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
-  let location = "Arvika";
-  let timePeriod = "last7days"; // can also be "last30days" and "yeartodate"
-  let unit = "metric"; // can also be us to recive farenheit insted of celcius
-  let userApiKey = "";
   const include = "&include=days%2Chours"
-  
-  function getLocation(event) {
-    console.log("getLocation", event.target.value);
-    location = event.target.value;
-  }
-  function getTimePeriod(event) {
-    console.log("getTimePeriod", event.target.value);
-    timePeriod = event.target.value;
-  }
-  function getUnit(event) {
-    console.log("getUnit", event.target.value);
-    unit = event.target.value;
-  }
-  function getKey(event) {
-    console.log("getKey", event.target.value);
-    userApiKey = event.target.value;
-  }
 
-  function submit(event) {
+  async function submit(event: { preventDefault: () => void; }) {
     event.preventDefault();
-		let data = getWeather();
-    console.log(data);
-    
+    const data: any = await getWeather();
+    const weatherData: Weather | undefined = await setWeatherData(data, location, unit, userApiKey);
+    if(weatherData) {
+      setDisplayWeather(weatherData);
+      localStorage.setItem("weatherData", JSON.stringify(weatherData));
+    }
+    navigate('/');
   }
   
-
   function checkApiKey() {
     if(userApiKey.length == 0) {
       return apiKey;
@@ -43,15 +39,20 @@ function Form() {
     }
   }
 
+  let apiCalls: number = 0;
   async function getWeather() {
-		try {
+    try {
+      ++apiCalls;
+      console.log(`${baseURL}${location}/${timePeriod}?unitGroup=${unit}${include}&key=${checkApiKey()}&contentType=json`);
 			const response = await fetch(`${baseURL}${location}/${timePeriod}?unitGroup=${unit}${include}&key=${checkApiKey()}&contentType=json`);
 			const data = await response.json();
-			console.log("data", data);
       return data;
-		} catch(error) {
+		} catch(error: unknown) {
+      if(apiCalls > 5) {
+        console.log("You might have used all of your calls for today; https://www.visualcrossing.com/usage");
+      }
 			console.log(error);
-			alert("Ojdå, den API nyckeln passade inte! \nOm du inte har någon API nyckel så kan du lämna fältet tomt.", error);
+			alert("Ojdå, något gick fel när väderdata skulle hämtas.");
 		}
   }
 
@@ -59,34 +60,34 @@ function Form() {
   return (
     <form className="form">
       <label className="form__label" htmlFor="location">Stad</label>
-      <input className="form__input" type="text" id="location" onChange={ getLocation }></input>
+      <input className="form__input" type="text" id="location" onChange={ (e) => setLocation(e.target.value) }></input>
 
       <p>Visa väder från..</p>
       <section>
-        <input className="form__input" type="radio" id="week" value="last7days" name="timePeriod" onChange={ getTimePeriod }></input>
+        <input className="form__input" type="radio" id="week" value="last7days" name="timePeriod" onChange={ (e) => setTimePeriod(e.target.value) }></input>
         <label htmlFor="week">senaste veckan</label>
       </section>
       <section>
-        <input className="form__input" type="radio" id="month" value="last30days" name="timePeriod" onChange={ getTimePeriod }></input>
+        <input className="form__input" type="radio" id="month" value="last30days" name="timePeriod" onChange={ (e) => setTimePeriod(e.target.value) }></input>
         <label htmlFor="month">senaste månaden</label>
       </section>
       <section>
-        <input className="form__input" type="radio" id="year" value="yeartodate" name="timePeriod" onChange={ getTimePeriod }></input>
+        <input className="form__input" type="radio" id="year" value="yeartodate" name="timePeriod" onChange={ (e) => setTimePeriod(e.target.value) }></input>
         <label htmlFor="year">årsskiftet</label>
       </section>
 
       <p>Enhet</p>
       <section>
-        <input className="form__input" type="radio" id="celcius" value="metric" name="unit" onChange={ getUnit }></input>
+        <input className="form__input" type="radio" id="celcius" value="metric" name="unit" onChange={ (e) => setUnit(e.target.value) }></input>
         <label htmlFor="celcius">Celcius</label>
       </section>
       <section>
-        <input className="form__input" type="radio" id="farenheight" value="farenheight" name="unit" onChange={ getUnit }></input>
+        <input className="form__input" type="radio" id="farenheight" value="farenheight" name="unit" onChange={ (e) => setUnit(e.target.value) }></input>
         <label htmlFor="farenheight">Farenheight</label>
       </section>
 
       <label className="form__label" htmlFor="key">API Nyckel (frivillig)</label>
-      <input className="form__input" type="text" id="key" onChange={ getKey }></input>
+      <input className="form__input" type="text" id="key" onChange={ (e) => setUserApiKey(e.target.value) }></input>
 
       {/* <input type="submit" value="Sök efter tempraturer" onChange={ submit } /> */}
       <button onClick={ submit }>Sök efter tempraturer</button>
