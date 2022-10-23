@@ -1,20 +1,20 @@
 import './App.scss';
-
-import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Home from './Views/Home';
-import About from './Views/About';
-import Search from './Views/Search';
+import HomeView from './Views/HomeView';
+import AboutView from './Views/AboutView';
+import SearchView from './Views/SearchView';
+import { useState } from 'react';
+import { Weather } from './models/models';
 
 function App() {
-  const [search, setSearch] = useState();
+  const [displayWeather, setDisplayWeather] = useState<Weather | null>(null);
 
   return (
     <Routes>
-      <Route path="/" element={ <Home/> } />
-      <Route path="/about" element={ <About/> } />
-      <Route path="/search" element={ <Search/> } />
+      <Route path="/" element={ <HomeView displayWeather={displayWeather} /> } />
+      <Route path="/about" element={ <AboutView /> } />
+      <Route path="/search" element={ <SearchView setDisplayWeather={setDisplayWeather} /> } />
     </Routes>
   )
 }
