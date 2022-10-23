@@ -6,14 +6,32 @@ body {
   width: 100%;
   min-height: 100%;
   margin: 0;
+  font-size: 18px;
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
+  color: #141414;
+}
+
+h1 {
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h2 {
+  font-size: 26px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h3 {
+  font-size: 22px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .views {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .views__wrapper {
   padding: 0 10%;
   max-width: 800px;
+  min-width: 360px;
 }
