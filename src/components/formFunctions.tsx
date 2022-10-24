@@ -1,5 +1,6 @@
 import './form.scss';
 import { Day, Hours, Weather } from '../models/models';
+import { useReducer } from 'react';
 
 
 export async function setWeatherData(data: { days: { hours: { temp: number; datetime: string; }[]; datetime: string; }[]; }, location: string, unit: string, userApiKey: string) {
@@ -17,6 +18,17 @@ export async function setWeatherData(data: { days: { hours: { temp: number; date
   }
 }
 
+function setDays(data: { days: any; }) {
+  return data.days.map((dataDays: { hours: { temp: number; datetime: string; }[]; datetime: string; }) => {
+    const hoursData: Hours[] = setHours(dataDays);
+
+    return ({
+      datetime: dataDays.datetime,
+      hours: hoursData
+    });
+  });
+}
+
 function setHours(dataDays: { hours: any; datetime?: string; }) {
   return dataDays.hours.map((dataHours: { temp: number; datetime: string; }) => {
     
@@ -24,16 +36,5 @@ function setHours(dataDays: { hours: any; datetime?: string; }) {
       temp: dataHours.temp,
       datetime: dataHours.datetime
     })
-  });
-}
-
-function setDays(data: { days: any; }) {
-  return data.days.map((dataDays: { hours: { temp: number; datetime: string; }[]; datetime: string; }) => {
-    const hoursData: Hours[] = setHours(dataDays); 
-
-    return ({
-      datetime: dataDays.datetime,
-      hours: hoursData
-    });
   });
 }
