@@ -1,6 +1,5 @@
 import './form.scss';
 import { Day, Hours, Weather } from '../models/models';
-import { useReducer } from 'react';
 
 
 export async function setWeatherData(data: { days: { hours: { temp: number; datetime: string; }[]; datetime: string; }[]; }, location: string, unit: string, userApiKey: string) {
