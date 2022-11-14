@@ -1,0 +1,15 @@
+
+.select-wrapper {
+    display: flex;
+    gap: 10px;
+
+    .select {
+        margin: 10px auto;
+        padding: 5px;
+        border: 1px solid black;
+        
+        font-size: 18px;
+        font-family: Calibri, 'Trebuchet MS', sans-serif;
+        color: #141414;
+    }
+}

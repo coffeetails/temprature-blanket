@@ -28,7 +28,8 @@ function Form({setDisplayWeather}: Props) {
             setDisplayWeather(weatherData);
             const maybePreviousWeatherData = localStorage.getItem("weatherData");
             if(maybePreviousWeatherData) {
-                const weathers = [weatherData, JSON.parse(maybePreviousWeatherData)];
+                let weathers = [weatherData, JSON.parse(maybePreviousWeatherData)];
+                weathers.push(weatherData);
                 localStorage.setItem("weatherData", JSON.stringify(weathers))
             } else {
                 localStorage.setItem("weatherData", JSON.stringify(weatherData));

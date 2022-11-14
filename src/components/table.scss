@@ -1,13 +1,35 @@
 .table {
-  width: 100%;
-  // margin: 0 auto;
-  border: 1px solid black;
-  border-radius: 5px;
-}
+    width: 100%;
+    border: 1px solid black;
 
-.table__header {
-}
+    border-collapse: collapse;
+    // table-layout: fixed;
 
-.table__content {
-  line-height: 1.7;
+    td {
+        padding-left: 1em;
+        margin: 3px 0;
+    }
+
+    .table__header {
+        border-bottom: 1px solid gray;
+    }
+    
+    .table__content {
+        line-height: 1.7;
+
+        .checkbox-holder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .checkbox {
+            width: 30px;
+            height: 30px;
+            margin: 0;
+            
+            &:hover {
+                border: 3px solid #000;
+            }
+        }
+    }
 }

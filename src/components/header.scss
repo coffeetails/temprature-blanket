@@ -1,22 +1,25 @@
 .header {
-  width: 100%;
-  border: 3px solid gray;
-  box-shadow: 0 0px 5px 2px gray;
-  text-align: center;
-  line-height: 0;
-  nav {
-    line-height: normal;
-  }
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  nav li {
-    margin: 5px;
-  }
+    width: 100%;
+    text-align: center;
+    line-height: 0;
+    padding-bottom: 1.5em;
+
+    background-image: url('../assets/headerBG.svg');
+    background-size: contain;
+
+    nav {
+        line-height: normal;
+    }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    nav li {
+        margin: 5px;
+    }
 }
