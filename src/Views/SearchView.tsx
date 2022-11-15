@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import Form from '../components/Form';
 import { Weather } from '../models/models';
+import yarn from '../assets/yarn.png';
 
 interface Props {
 	setDisplayWeather: (displayWeather: Weather | null) => void;
@@ -25,6 +26,7 @@ function SearchView({setDisplayWeather}: Props) {
 
 				<Form setDisplayWeather={setDisplayWeather} />
 			</article>
+			<img src={yarn} />
 		</section>
   );
 }

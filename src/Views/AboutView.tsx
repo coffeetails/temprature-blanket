@@ -5,6 +5,7 @@ import icons from '../assets/fakePostFB/icons.png'
 import profile from '../assets/fakePostFB/profile.jpg'
 import concept1 from '../assets/fakePostFB/concept1.png'
 import concept2 from '../assets/fakePostFB/concept2.png'
+import yarn from '../assets/yarn.png';
 
 function AboutView() {
 
@@ -111,6 +112,7 @@ function AboutView() {
             <li></li>
             </ul>
         </article>
+        <img src={yarn} />
     </section>
   );
 }

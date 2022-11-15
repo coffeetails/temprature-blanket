@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import { Weather } from '../models/models';
 import { ChangeEvent, useState } from 'react';
 import placeholder from '../assets/placeholder.json';
-import { CommandInteractionOptionResolver } from 'discord.js';
+import yarn from '../assets/yarn.png';
 
 interface Props {
 	displayWeather: Weather | null;
@@ -57,6 +57,7 @@ function HomeView({displayWeather, setDisplayWeather}: Props) {
 					</section>
 					<Table displayWeather={displayWeather} displayHour={displayHour} />
 				</article>
+				<img src={yarn} />
 			</section>
 	);
 }
