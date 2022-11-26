@@ -24,13 +24,18 @@ function Form({setDisplayWeather}: Props) {
         event.preventDefault();
         const data: any = await getWeather();
         const weatherData: Weather | undefined = await setWeatherData(data, location, unit, userApiKey);
+        console.log("data", data);
+        console.log("weatherData", weatherData);
         if(weatherData) {
             setDisplayWeather(weatherData);
             const maybePreviousWeatherData = localStorage.getItem("weatherData");
+            // console.log("maybePreviousWeatherData", maybePreviousWeatherData);
             if(maybePreviousWeatherData) {
                 let weathers = JSON.parse(maybePreviousWeatherData);
+                // console.log("weathers", weathers);
                 weathers.push(weatherData);
-                localStorage.setItem("weatherData", JSON.stringify(weathers))
+                // console.log("weathers", weathers);
+                localStorage.setItem("weatherData", JSON.stringify(weathers));
             } else {
                 localStorage.setItem("weatherData", JSON.stringify(weatherData));
             }
