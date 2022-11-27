@@ -35,8 +35,8 @@ function HomeView({displayWeather, setDisplayWeather}: Props) {
 		localStorage.setItem("weatherData", JSON.stringify(placeholder));
 	}
 
-	function getWeatherValue(e: ChangeEvent<HTMLSelectElement>) {
-		const value = e.target.value.substring(7);
+	function getWeatherValue(event: ChangeEvent<HTMLSelectElement>) {
+		const value = event.target.value.substring(7);
 		if(weatherData) {
 			const parsedWeatherData = JSON.parse(weatherData);
 			setDisplayWeather(parsedWeatherData[value]);
