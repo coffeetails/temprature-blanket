@@ -13,4 +13,5 @@ export type Day = {
 export type Hours = {
   temp: number;
   datetime: string;
+  checked: boolean;
 }

@@ -21,7 +21,7 @@ function Table({displayWeather, displayHour}: Props) {
                     <th scope="row">{day.datetime}</th>
                     <td>{day.hours[hour].datetime.substring(0, 5)}</td>
                     <td>{day.hours[hour].temp}°</td>
-                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" /></td>
+                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" defaultChecked={day.hours[hour].checked} /></td>
                 </tr>
                 )
             });

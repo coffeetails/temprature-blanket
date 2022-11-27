@@ -33,7 +33,8 @@ function setHours(dataDays: { hours: any; datetime?: string; }) {
     
     return ({
       temp: dataHours.temp,
-      datetime: dataHours.datetime
+      datetime: dataHours.datetime,
+      checked: false
     })
   });
 }
