@@ -15,17 +15,16 @@ function AboutView() {
         <h1>Om projektet</h1>
         <article className="views__wrapper">
             <p>Som många andra så började jag med handarbete under pandemin 2020-2022. Jag började virka så smått. Faktiskt så upptäckte jag att det är väldigt skönt att virka medans jag programmerar.</p>
-            <p>En av många projekt som jag stötte på var temperaturfiltar då man varje dag vid en bestämd tidpunkt kollar vad tempraturen är (oftast där man bor) och låter tempraturen bestämma vilken färg nästa rad på filten ska ha.</p>
-            <p>Så man har i förväg bestämt vilka färger som ska vara för olika tempraturintervaller. I slutet på året får man en randig filt som visar årets tempraturer.</p>
+            <p>En av många projekt som jag stötte på var temperaturfiltar då man varje dag vid en bestämd tidpunkt kollar vad tempraturen är (oftast där man bor) och låter tempraturen bestämma vilken färg nästa rad på filten ska ha. Så man har i förväg bestämt vilka färger som ska vara för olika tempraturintervaller. I slutet på året får man en randig filt som visar årets tempraturer.</p>
         </article>
 
-        <article className="views__wrapper">
-            <h2>Design processen</h2>
-            <h3>Empathize</h3>
-            <p>Målgruppen är personer som virkar. Sedan pandemin så har åldersspannet bland dom som virkar blivit bredare och jag tror även att målgruppens fördelning av  könsidentiteter har blivit jämnare.</p>
-            <p>För att lära mig mera om målgruppen så tänker jag att ett frågeformulär vore passande. Jag är med i en facebook grupp som heter <a href="https://www.facebook.com/groups/virkamera">Virka mera</a> med lite över 41 tusen medlemmar. </p>
+        {/* <article className="views__wrapper"> */}
+            {/* <h2>Design processen</h2> */}
+            {/* <h3>Empathize</h3> */}
+            {/* <p>Målgruppen är personer som virkar. Sedan pandemin så har åldersspannet bland dom som virkar blivit bredare och jag tror även att målgruppens fördelning av  könsidentiteter har blivit jämnare.</p> */}
+            {/* <p>För att lära mig mera om målgruppen så tänker jag att ett frågeformulär vore passande. Jag är med i en facebook grupp som heter <a href="https://www.facebook.com/groups/virkamera">Virka mera</a> med lite över 41 tusen medlemmar. </p> */}
 
-            <article className="facebook-post">
+            {/* <article className="facebook-post">
                 <header className="post-header">
                     <img src={profile} />
                     <section>
@@ -81,16 +80,17 @@ function AboutView() {
                     </section>
                 </footer>
 
-            </article>
+            </article> */}
 
-            <h4>User stories</h4>
+            {/* <h4>User stories</h4>
             <ul>
-                <li>Som *användare* vill jag ... för att ...</li>
+                <li>Som användare vill jag kunna se tidigare tempraturer för att jag ibland missar att kolla tempraturen vid rätt klockslag varje dag.</li>
+                <li>Som användare vill jag kunna checka av tidigare tempraturer för att jag ibland missar att kolla tempraturen vid rätt klockslag varje dag.</li>
             </ul>
 
             <h3>Define</h3>
-            <p>Varför behövs denna guiden? För att ...</p>
-            <p>Varför ... ? För att ...</p>
+            <p>Varför behövs denna guiden? För att se tidigare tempraturer</p>
+            <p>Varför vill man se tidigare tempraturer ? För att man inte alltid minns</p>
             <p>Varför ... ? För att ...</p>
             <p>Varför ... ? För att ...</p>
             <p>Varför ... ? För att ...</p>
@@ -99,17 +99,16 @@ function AboutView() {
             <h3>Prototype</h3>
             <p>Dags att skissa fram idéer</p>
             <h3>Test</h3>
-            <p>Testa prototypen för att få värdefull feedback.</p>
-		</article>
+            <p>Testa prototypen för att få värdefull feedback.</p> */}
+		{/* </article> */}
 
         <article className="views__wrapper">
             <h2>Tekniker och metoder</h2>
             <ul>
-            <li>Typecript</li>
-            <li>SASS</li>
-            <li>React</li>
-            <li>React-router-dom</li>
-            <li></li>
+                <li>Typecript</li>
+                <li>SASS</li>
+                <li>Vite</li>
+                <li>React Router</li>
             </ul>
         </article>
         <img src={yarn} />
