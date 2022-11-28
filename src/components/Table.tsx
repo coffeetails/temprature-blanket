@@ -14,6 +14,15 @@ function Table({displayWeather, displayHour}: Props) {
         console.log("displayHour", displayHour);
         const hour: number = +displayHour.substring(0,2);
         
+        // ===================== TODO ===================== \\
+        // - Update the localstorage when a box is checked  \\
+        // - Update table checkboxes when changing what     \\
+        //    weatherData is displayed.                     \\
+
+        function updateCheckbox(e) {
+            console.log("ohai", e);
+        }
+        
         if(displayWeather) {
             const mappedData = displayWeather.days.map((day: Day, index: Key) => {
                 return (
@@ -21,7 +30,7 @@ function Table({displayWeather, displayHour}: Props) {
                     <th scope="row">{day.datetime}</th>
                     <td>{day.hours[hour].datetime.substring(0, 5)}</td>
                     <td>{day.hours[hour].temp}°</td>
-                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" defaultChecked={day.hours[hour].checked} /></td>
+                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" defaultChecked={day.hours[hour].checked} onChange={updateCheckbox} /></td>
                 </tr>
                 )
             });
