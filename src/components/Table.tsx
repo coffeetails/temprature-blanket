@@ -14,13 +14,32 @@ function Table({displayWeather, displayHour}: Props) {
         console.log("displayHour", displayHour);
         const hour: number = +displayHour.substring(0,2);
         
+        
         // ===================== TODO ===================== \\
         // - Update the localstorage when a box is checked  \\
         // - Update table checkboxes when changing what     \\
         //    weatherData is displayed.                     \\
-
-        function updateCheckbox(e) {
-            console.log("ohai", e);
+        
+        function updateCheckbox(event) {
+            const newCheckedStatus = event.target.checked;
+            const clickedDate = event.target.getAttribute('data-datetime');
+        	const weatherData = localStorage.getItem("weatherData");
+            if(weatherData) {
+                let parsedWeatherData = JSON.parse(weatherData);
+                console.log(newCheckedStatus, clickedDate, hour, parsedWeatherData);
+                for(let i = 0; i < parsedWeatherData.length; i++) {
+                    console.log("parsedWeatherData[i]", parsedWeatherData[i]);
+                    if(parsedWeatherData[i].location == displayWeather?.location) {
+                        for(let j = 0; i < parsedWeatherData[i].days.length; j++) {
+                            if(parsedWeatherData[i].days[j]?.datetime == clickedDate) {
+                                console.log("parsedWeatherData[i].days[j]", parsedWeatherData[i].days[j]);
+                                console.log("parsedWeatherData[i].days[j].hours[hour]", parsedWeatherData[i].days[j].hours[hour]);
+                                console.log("parsedWeatherData[i].days[j].hours[hour].checked", parsedWeatherData[i].days[j].hours[hour].checked);
+                            }
+                        }
+                    }
+                }
+            }
         }
         
         if(displayWeather) {
@@ -30,16 +49,14 @@ function Table({displayWeather, displayHour}: Props) {
                     <th scope="row">{day.datetime}</th>
                     <td>{day.hours[hour].datetime.substring(0, 5)}</td>
                     <td>{day.hours[hour].temp}°</td>
-                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" defaultChecked={day.hours[hour].checked} onChange={updateCheckbox} /></td>
+                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" defaultChecked={day.hours[hour].checked} onChange={updateCheckbox} data-datetime={day.datetime} /></td>
                 </tr>
                 )
             });
             return mappedData; 
         }
+
     }
-    useEffect(() => {
-        displayHour;
-    });
 
     return (
         <table className="table">
