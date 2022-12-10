@@ -29,12 +29,9 @@ function Form({setDisplayWeather}: Props) {
         if(weatherData) {
             setDisplayWeather(weatherData);
             const maybePreviousWeatherData = localStorage.getItem("weatherData");
-            // console.log("maybePreviousWeatherData", maybePreviousWeatherData);
             if(maybePreviousWeatherData) {
                 let weathers = JSON.parse(maybePreviousWeatherData);
-                // console.log("weathers", weathers);
                 weathers.push(weatherData);
-                // console.log("weathers", weathers);
                 localStorage.setItem("weatherData", JSON.stringify(weathers));
             } else {
                 localStorage.setItem("weatherData", JSON.stringify(weatherData));
