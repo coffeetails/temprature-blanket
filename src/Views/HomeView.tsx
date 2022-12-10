@@ -3,7 +3,7 @@ import './homeView.scss';
 import Table from '../components/Table';
 import Header from '../components/Header';
 import { Weather } from '../models/models';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import placeholder from '../assets/placeholder.json';
 import yarn from '../assets/yarn.png';
 
@@ -45,20 +45,20 @@ function HomeView({displayWeather, setDisplayWeather}: Props) {
 
 
 	return (
-			<section className="homepage views">
-				<Header />
-				<article className="views__wrapper">
-					<p>Här nedan ser du redan sökta tidsperioder, till vänster nedan kan du välja plats med antalet dagar samt startdatum. Till höger kan du välja vilket klockslag på dygnet du vill visa tempraturen för.</p>
-					<section className="select-wrapper">
-						<select onChange={(e) => getWeatherValue(e)} className="select selectWeather">
-							{options}
-						</select>
-						<input type="time" step={60000*60} onChange={ (e) => setDisplayHour(e.target.value) } value={displayHour} className="select selectTime"></input>
-					</section>
-					<Table displayWeather={displayWeather} displayHour={displayHour} />
-				</article>
-				<img src={yarn} />
-			</section>
+		<section className="homepage views">
+			<Header />
+			<article className="views__wrapper">
+				<p>Här nedan ser du redan sökta tidsperioder, till vänster nedan kan du välja plats med antalet dagar samt startdatum. Till höger kan du välja vilket klockslag på dygnet du vill visa tempraturen för.</p>
+				<section className="select-wrapper">
+					<select onChange={(e) => getWeatherValue(e)} className="select selectWeather">
+						{options}
+					</select>
+					<input type="time" step={60000*60} onChange={ (e) => setDisplayHour(e.target.value) } value={displayHour} className="select selectTime"></input>
+				</section>
+				<Table displayWeather={displayWeather} displayHour={displayHour} />
+			</article>
+			<img src={yarn} />
+		</section>
 	);
 }
 
