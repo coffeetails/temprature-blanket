@@ -23,14 +23,11 @@ function HomeView({displayWeather, setDisplayWeather}: Props) {
 
 	if(weatherData) {
 		const parsedWeatherData = JSON.parse(weatherData);
-		console.log("parsedWeatherData", parsedWeatherData);
+		// console.log("parsedWeatherData", parsedWeatherData);
 		options = parsedWeatherData.map((data: Weather, index: string) => {
 			const startDate: string = data.days[0].datetime.slice(5,7) + "/" + data.days[0].datetime.slice(8,10);
 			return (<option value={"weather" + index} key={index}>{data.location}: {data.days.length} dagar från {startDate}</option>);
 		});
-		if(!displayWeather) {
-			setDisplayWeather(parsedWeatherData[0]);
-		}
 	} else {
 		localStorage.setItem("weatherData", JSON.stringify(placeholder));
 	}
@@ -51,6 +48,7 @@ function HomeView({displayWeather, setDisplayWeather}: Props) {
 				<p>Här nedan ser du redan sökta tidsperioder, till vänster nedan kan du välja plats med antalet dagar samt startdatum. Till höger kan du välja vilket klockslag på dygnet du vill visa tempraturen för.</p>
 				<section className="select-wrapper">
 					<select onChange={(e) => getWeatherValue(e)} className="select selectWeather">
+						<option>Välj väderdata</option>
 						{options}
 					</select>
 					<input type="time" step={60000*60} onChange={ (e) => setDisplayHour(e.target.value) } value={displayHour} className="select selectTime"></input>
