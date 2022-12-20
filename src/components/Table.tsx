@@ -22,23 +22,31 @@ function Table({displayWeather, displayHour}: Props) {
         
         function updateCheckbox(event) {
             const newCheckedStatus = event.target.checked;
-            const clickedDate = event.target.getAttribute('data-datetime');
+            const clickedDate = event.target.getAttribute('data-target');
         	const weatherData = localStorage.getItem("weatherData");
-            if(weatherData) {
-                let parsedWeatherData = JSON.parse(weatherData);
-                console.log(newCheckedStatus, clickedDate, hour, parsedWeatherData);
-                for(let i = 0; i < parsedWeatherData.length; i++) {
-                    console.log("parsedWeatherData[i]", parsedWeatherData[i]);
-                    if(parsedWeatherData[i].location == displayWeather?.location) {
-                        for(let j = 0; i < parsedWeatherData[i].days.length; j++) {
-                            if(parsedWeatherData[i].days[j]?.datetime == clickedDate) {
-                                console.log("parsedWeatherData[i].days[j]", parsedWeatherData[i].days[j]);
-                                console.log("parsedWeatherData[i].days[j].hours[hour]", parsedWeatherData[i].days[j].hours[hour]);
-                                console.log("parsedWeatherData[i].days[j].hours[hour].checked", parsedWeatherData[i].days[j].hours[hour].checked);
-                            }
+            // console.log(clickedDate);
+
+            if(displayWeather) {
+                if(weatherData) {
+                    const parsedWeatherData = JSON.parse(weatherData);
+                    for(let data of parsedWeatherData) { 
+                        if(data.location == displayWeather.location && data.days[0].datetime == displayWeather.days[0].datetime && data.days.length == displayWeather.days.length) {
+                            console.log("Ping!");
+                            // console.log(" data.days[clickedDate].hours[hour].checked", data.days[clickedDate].hours[hour].checked);
+                            console.log("before", data.days[clickedDate].hours[hour].checked);
+                            
+                            let boolean = data.days[clickedDate].hours[hour].checked;
+                            boolean = boolean !== true;
+                            data.days[clickedDate].hours[hour].checked = boolean;
+
+                            console.log("after", data.days[clickedDate].hours[hour].checked);
+
+                            localStorage.setItem("weatherData", JSON.stringify(parsedWeatherData));
+                            break;
                         }
                     }
                 }
+                // console.log(displayWeather.days[clickedDate].hours[hour].checked);
             }
         }
         
@@ -49,7 +57,7 @@ function Table({displayWeather, displayHour}: Props) {
                     <th scope="row">{day.datetime}</th>
                     <td>{day.hours[hour].datetime.substring(0, 5)}</td>
                     <td>{day.hours[hour].temp}°</td>
-                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" defaultChecked={day.hours[hour].checked} onChange={updateCheckbox} data-datetime={day.datetime} /></td>
+                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" defaultChecked={day.hours[hour].checked} onChange={updateCheckbox} data-target={index} /></td>
                 </tr>
                 )
             });
