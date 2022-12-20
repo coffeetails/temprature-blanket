@@ -21,7 +21,6 @@ function Table({displayWeather, displayHour}: Props) {
         //    weatherData is displayed.                     \\
         
         function updateCheckbox(event) {
-            const newCheckedStatus = event.target.checked;
             const clickedDate = event.target.getAttribute('data-target');
         	const weatherData = localStorage.getItem("weatherData");
             // console.log(clickedDate);
