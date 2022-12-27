@@ -51,6 +51,7 @@ function Table({displayWeather, displayHour}: Props) {
         
         if(displayWeather) {
             const mappedData = displayWeather.days.map((day: Day, index: Key) => {
+                console.log(day.datetime, day.hours[hour].datetime, day.hours[hour].checked);
                 return (
                 <tr key={index} >
                     <th scope="row">{day.datetime}</th>
