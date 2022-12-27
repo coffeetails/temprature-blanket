@@ -9,14 +9,14 @@ interface Props {
 }
 
 function Table({displayWeather, displayHour, setDisplayWeather}: Props) {
-  
+    
+
     function displayTempratures() {
         console.log("table.js - displayWeather", displayWeather);
         console.log("displayHour", displayHour);
         const hour: number = +displayHour.substring(0,2);
         
-        
-        // TODO: Update table checkboxes when changing what weatherData is displayed.
+
         function updateCheckbox(event) {
             const clickedDate = event.target.getAttribute('data-target');
         	const weatherData = localStorage.getItem("weatherData");
@@ -53,7 +53,7 @@ function Table({displayWeather, displayHour, setDisplayWeather}: Props) {
                     <th scope="row">{day.datetime}</th>
                     <td>{day.hours[hour].datetime.substring(0, 5)}</td>
                     <td>{day.hours[hour].temp}°</td>
-                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" defaultChecked={day.hours[hour].checked} onChange={updateCheckbox} data-target={index} /></td>
+                    <td className="checkbox-holder"><input type="checkbox" className="checkbox" checked={day.hours[hour].checked} onChange={updateCheckbox} data-target={index} /></td>
                 </tr>
                 )
             });
