@@ -53,7 +53,7 @@ function HomeView({displayWeather, setDisplayWeather}: Props) {
 					</select>
 					<input type="time" step={60000*60} onChange={ (e) => setDisplayHour(e.target.value) } value={displayHour} className="select selectTime"></input>
 				</section>
-				<Table displayWeather={displayWeather} displayHour={displayHour} />
+				<Table displayWeather={displayWeather} displayHour={displayHour} setDisplayWeather={setDisplayWeather} />
 			</article>
 			<img src={yarn} />
 		</section>

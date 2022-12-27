@@ -3,11 +3,12 @@ import { Day, Weather } from '../models/models';
 import './table.scss';
 
 interface Props {
+	setDisplayWeather: (displayWeather: Weather | null) => void;
 	displayWeather: Weather | null;
     displayHour: string;
 }
 
-function Table({displayWeather, displayHour}: Props) {
+function Table({displayWeather, displayHour, setDisplayWeather}: Props) {
   
     function displayTempratures() {
         console.log("table.js - displayWeather", displayWeather);
@@ -15,11 +16,7 @@ function Table({displayWeather, displayHour}: Props) {
         const hour: number = +displayHour.substring(0,2);
         
         
-        // ===================== TODO ===================== \\
-        // - Update the localstorage when a box is checked  \\
-        // - Update table checkboxes when changing what     \\
-        //    weatherData is displayed.                     \\
-        
+        // TODO: Update table checkboxes when changing what weatherData is displayed.
         function updateCheckbox(event) {
             const clickedDate = event.target.getAttribute('data-target');
         	const weatherData = localStorage.getItem("weatherData");
@@ -30,17 +27,16 @@ function Table({displayWeather, displayHour}: Props) {
                     const parsedWeatherData = JSON.parse(weatherData);
                     for(let data of parsedWeatherData) { 
                         if(data.location == displayWeather.location && data.days[0].datetime == displayWeather.days[0].datetime && data.days.length == displayWeather.days.length) {
-                            console.log("Ping!");
                             // console.log(" data.days[clickedDate].hours[hour].checked", data.days[clickedDate].hours[hour].checked);
-                            console.log("before", data.days[clickedDate].hours[hour].checked);
-                            
+                            // console.log("before", data.days[clickedDate].hours[hour].checked);
                             let boolean = data.days[clickedDate].hours[hour].checked;
                             boolean = boolean !== true;
                             data.days[clickedDate].hours[hour].checked = boolean;
-
-                            console.log("after", data.days[clickedDate].hours[hour].checked);
-
+                            // console.log("after", data.days[clickedDate].hours[hour].checked);
+                            
                             localStorage.setItem("weatherData", JSON.stringify(parsedWeatherData));
+                            setDisplayWeather(data);
+                            console.log("LocalStorage and displayWeather is updated.");
                             break;
                         }
                     }
