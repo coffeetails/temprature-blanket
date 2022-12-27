@@ -1,42 +1,58 @@
+@use './_base';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght,GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC@8..144,35,830,-45,493,64,854,-305,788,416,760;8..144,70,438,-200,424,71,762,-215,788,510,760&display=swap');
+
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+
+	font-size: 18px;
+	font-family: 'Roboto Flex', sans-serif;
+	font-variation-settings: "opsz" 18, "slnt" 0, "GRAD" -200, "XTRA" 424, "YOPQ" 71, "YTAS" 762, "YTDE" -215, "YTFI" 788, "YTLC" 510, "YTUC" 760;
+	color: base.$dark; 
 }
 
 body {
-  width: 100%;
-  min-height: 100%;
-  margin: 0;
-  font-size: 18px;
-  font-family: Calibri, 'Trebuchet MS', sans-serif;
-  color: #141414;
+	width: 100%;
+	min-height: 100%;
+	margin: 0;
+	
+	background-image: url('./assets/bodyBG.svg');
+    background-size: cover;
 }
 
-h1 {
-  font-size: 30px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+h1, h2, h3 {
+	font-variation-settings: "opsz" 30, "slnt" 0, "GRAD" -45, "XTRA" 493, "YOPQ" 64, "YTAS" 854, "YTDE" -305, "YTFI" 788, "YTLC" 416, "YTUC" 760;
+	font-family: 'Roboto Flex', sans-serif;
 }
-h2 {
-  font-size: 26px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-h3 {
-  font-size: 22px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
+
+h1 { font-size: 30px; }
+h2 { font-size: 26px; }
+h3 { font-size: 22px; }
 
 img {
-  margin: 1em;
+	margin: 1em;
 }
 
 .views {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .views__wrapper {
-  padding: 0 10%;
-  width: 100vw;
-  max-width: 800px;
-  min-width: 250px;
+	padding: 2rem 4rem;
+	margin: 1rem 0;
+	width: 100vw;
+	max-width: 800px;
+	min-width: 250px;
+
+	background: rgba( 255, 255, 255, 0.35 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	backdrop-filter: blur( 4px );
+	-webkit-backdrop-filter: blur( 4px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.yarn {
+	background: radial-gradient(circle at 50% 50%,rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }

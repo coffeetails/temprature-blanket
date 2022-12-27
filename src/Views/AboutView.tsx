@@ -16,6 +16,7 @@ function AboutView() {
         <article className="views__wrapper">
             <p>Som många andra så började jag med handarbete under pandemin 2020-2022. Jag började virka så smått. Faktiskt så upptäckte jag att det är väldigt skönt att virka medans jag programmerar.</p>
             <p>En av många projekt som jag stötte på var temperaturfiltar då man varje dag vid en bestämd tidpunkt kollar vad tempraturen är (oftast där man bor) och låter tempraturen bestämma vilken färg nästa rad på filten ska ha. Så man har i förväg bestämt vilka färger som ska vara för olika tempraturintervaller. I slutet på året får man en randig filt som visar årets tempraturer.</p>
+            <a href='https://github.com/MonBjo/temprature-blanket'>Länk till GitHub repot.</a>
         </article>
 
         {/* <article className="views__wrapper"> */}
@@ -111,7 +112,7 @@ function AboutView() {
                 <li>React Router</li>
             </ul>
         </article>
-        <img src={yarn} />
+        <img src={yarn} className="yarn" />
     </section>
   );
 }

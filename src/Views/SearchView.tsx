@@ -25,7 +25,7 @@ function SearchView({setDisplayWeather}: Props) {
 
 				<Form setDisplayWeather={setDisplayWeather} />
 			</article>
-			<img src={yarn} />
+			<img src={yarn} className="yarn" />
 		</section>
   );
 }

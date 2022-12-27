@@ -5,6 +5,14 @@
     border-collapse: collapse;
     // table-layout: fixed;
 
+
+	background: rgba( 255, 255, 255, 0.35 );
+	// box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	backdrop-filter: blur( 4px );
+	-webkit-backdrop-filter: blur( 4px );
+	// border-radius: 10px;
+	// border: 1px solid rgba( 255, 255, 255, 0.18 );
+
     td {
         padding-left: 1em;
         margin: 3px 0;
@@ -25,7 +33,10 @@
             width: 30px;
             height: 30px;
             margin: 0;
-            
+
+            &:checked {
+                background: #73C2FE;
+            }
             &:hover {
                 border: 3px solid #000;
             }
