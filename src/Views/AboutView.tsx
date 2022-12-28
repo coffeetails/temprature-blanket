@@ -16,7 +16,7 @@ function AboutView() {
         <article className="views__wrapper">
             <h2>Bakgrund</h2>
             <p>Som många andra så började jag med handarbete under pandemin 2020-2022. Jag började virka så smått. Senare upptäckte jag att det är väldigt skönt att virka medans jag programmerar.</p>
-            <p>En av många projekt som jag stötte på var <span className="italic">temperaturfiltar</span> då man varje dag vid en bestämd tidpunkt kollar vad tempraturen är (oftast där man bor) och låter tempraturen bestämma vilken färg nästa rad på filten ska ha. Så man har i förväg bestämt vilka färger som ska vara för olika tempraturintervaller. I slutet på året får man en randig filt som visar årets tempraturer.</p>
+            <p>En av många projekt som jag stötte på var <span className="italic">temperaturfiltar</span> då man varje dag vid en bestämd tidpunkt kollar vad temperaturen är (oftast där man bor) och låter temperaturen bestämma vilken färg nästa rad på filten ska ha. Så man har i förväg bestämt vilka färger som ska vara för olika temperaturintervaller. I slutet på året får man en randig filt som visar årets temperaturer.</p>
         </article>
 
         {/* <article className="views__wrapper"> */}
@@ -43,7 +43,7 @@ function AboutView() {
                     <li>Ålder:</li>
                     <li>Hur länge har du virkat?:</li>
                     <li>Har du tidigare gjort en temperaturfilt?:</li>
-                    <li>Vad har hindrat dig i att göra en tempraturfilt? (varesig du faktiskt gjort en eller inte):</li>
+                    <li>Vad har hindrat dig i att göra en temperaturfilt? (varesig du faktiskt gjort en eller inte):</li>
                     <li>Vad för funktioner skulle du vilja se på den här webbsidan?:</li>
                 </ul>
                 <p>Du väljer själv om du vill svara i en kommentar nedan eller om du vill skriva till mig privat.</p>
@@ -85,13 +85,13 @@ function AboutView() {
 
             {/* <h4>User stories</h4>
             <ul>
-                <li>Som användare vill jag kunna se tidigare tempraturer för att jag ibland missar att kolla tempraturen vid rätt klockslag varje dag.</li>
-                <li>Som användare vill jag kunna checka av tidigare tempraturer för att jag ibland missar att kolla tempraturen vid rätt klockslag varje dag.</li>
+                <li>Som användare vill jag kunna se tidigare temperaturer för att jag ibland missar att kolla temperaturen vid rätt klockslag varje dag.</li>
+                <li>Som användare vill jag kunna checka av tidigare temperaturer för att jag ibland missar att kolla temperaturen vid rätt klockslag varje dag.</li>
             </ul>
 
             <h3>Define</h3>
-            <p>Varför behövs denna guiden? För att se tidigare tempraturer</p>
-            <p>Varför vill man se tidigare tempraturer ? För att man inte alltid minns</p>
+            <p>Varför behövs denna guiden? För att se tidigare temperaturer</p>
+            <p>Varför vill man se tidigare temperaturer ? För att man inte alltid minns</p>
             <p>Varför ... ? För att ...</p>
             <p>Varför ... ? För att ...</p>
             <p>Varför ... ? För att ...</p>
@@ -105,7 +105,7 @@ function AboutView() {
 
         <article className="views__wrapper wrapper__columns">
             <div className="floatie">
-                <h2>Användna bibliotek</h2>
+                <h2>Techstack</h2>
                 <ul>
                     <li>Typecript</li>
                     <li>SASS</li>
