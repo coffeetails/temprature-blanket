@@ -28,6 +28,9 @@ h1 { font-size: 30px; }
 h2 { font-size: 26px; }
 h3 { font-size: 22px; }
 
+.italic { font-style: italic; }
+.bold { font-weight: bolder; }
+
 img {
 	margin: 1em;
 }
@@ -39,18 +42,16 @@ img {
 }
 
 .views__wrapper {
-	padding: 2rem 4rem;
-	margin: 1rem 0;
-	width: 100vw;
-	max-width: 800px;
-	min-width: 250px;
-
-	background: rgba( 255, 255, 255, 0.35 );
-	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-	backdrop-filter: blur( 4px );
-	-webkit-backdrop-filter: blur( 4px );
-	border-radius: 10px;
-	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	padding: 1rem;
+	margin: 1rem;
+	width: 95%;
+	max-width: 50rem;
+	border-radius: base.$big;
+	@extend %glassmorphism;
+	
+	p {
+		line-height: 1.75rem;
+	}
 }
 
 .yarn {

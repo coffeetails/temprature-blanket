@@ -1,9 +1,33 @@
 
 $dark: #141414;
+$gray-bg: rgba( 255, 255, 255, 0.35 );
 $blue: #73C2FE;
 
+$border: 1px solid $dark;
+$small: .25rem;
+$big: .75rem;
+
 %flexRowCenter {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+%flexRowEven {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+%glassmorphism {
+  	background: $gray-bg;
+	backdrop-filter: blur( 4px );
+	-webkit-backdrop-filter: blur( 4px );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+
+%glassmorphism-minimal {
+	background: $gray-bg;
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
 }

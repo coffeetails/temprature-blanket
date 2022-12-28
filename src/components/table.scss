@@ -1,17 +1,14 @@
+@use '../_base';
+
 .table {
     width: 100%;
-    border: 1px solid black;
+    border: base.$border;
 
     border-collapse: collapse;
     // table-layout: fixed;
 
 
-	background: rgba( 255, 255, 255, 0.35 );
-	// box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-	backdrop-filter: blur( 4px );
-	-webkit-backdrop-filter: blur( 4px );
-	// border-radius: 10px;
-	// border: 1px solid rgba( 255, 255, 255, 0.18 );
+	@extend %glassmorphism-minimal;
 
     td {
         padding-left: 1em;
@@ -24,21 +21,31 @@
     
     .table__content {
 
+        tr {
+            transition: .5s;
+            &:hover {
+                background-color: base.$gray-bg;
+                box-shadow: inset 0 0 0 2px base.$dark;
+            }
+        }
+
         .checkbox-holder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @extend %flexRowCenter;
+            // align-items: center;
         }
         .checkbox {
             width: 30px;
             height: 30px;
             margin: 0;
+            transition: .5s;
+
 
             &:checked {
-                background: #73C2FE;
+                background: base.$blue;
             }
             &:hover {
-                border: 3px solid #000;
+                border: 3px solid base.$dark;
+                box-shadow: 0 0 .25rem base.$dark;
             }
         }
     }

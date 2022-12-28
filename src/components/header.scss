@@ -1,19 +1,16 @@
+@use '../_base';
+
 .header {
     width: 100%;
     text-align: center;
-    line-height: 0;
-    padding-bottom: 1.5em;
-
-    // background-image: url('../assets/headerBG.svg');
-    // background-size: contain;
-
-    background: rgba( 255, 255, 255, 0.35 );
-	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-	backdrop-filter: blur( 4px );
-	-webkit-backdrop-filter: blur( 4px );
-	// border-radius: 10px;
-	border: 1px solid rgba( 255, 255, 255, 0.18 );
-
+    padding-bottom: 1em;
+    margin-bottom: 1.5rem;
+    @extend %glassmorphism;
+    
+    
+    h1 { 
+        line-height: 0;
+    }
     nav {
         line-height: normal;
     }
@@ -21,10 +18,8 @@
         list-style: none;
         margin: 0;
         padding: 0;
-    
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+
+        @extend %flexRowEven;
     }
     nav li {
         margin: 5px;
