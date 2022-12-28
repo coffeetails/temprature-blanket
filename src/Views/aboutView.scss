@@ -1,5 +1,27 @@
 @use '../_base';
 
+.wrapper__columns {
+    // display: flex;
+    // flex-wrap: wrap;
+    .floatie {
+        float: left;
+        margin-right: .75rem;
+        margin-bottom: .75rem;
+        padding: 0 .5rem;
+        padding-bottom: .75rem;
+        border-radius: base.$big;
+        border: base.$border;
+        @extend %glassmorphism-minimal;
+
+        & ul {
+            margin: 0;
+        }
+    }
+}
+
+
+
+
 .facebook-post {
     max-width: 600px;
     min-width: 335px;
