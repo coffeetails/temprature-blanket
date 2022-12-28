@@ -1,149 +1,23 @@
 @use '../_base';
 
-.wrapper__columns {
+.howIveWorkedText {
     // display: flex;
     // flex-wrap: wrap;
+    & h2 {
+        min-width: 200px;
+    }
     .floatie {
         float: left;
         margin-right: .75rem;
         margin-bottom: .75rem;
-        padding: 0 .5rem;
-        padding-bottom: .75rem;
+        padding: 0 1rem .75rem 1rem;
         border-radius: base.$big;
         border: base.$border;
         @extend %glassmorphism-minimal;
 
         & ul {
             margin: 0;
+            list-style-type: circle;
         }
-    }
-}
-
-
-
-
-.facebook-post {
-    max-width: 600px;
-    min-width: 335px;
-    margin: auto;
-    border: 2px solid #1877F2;
-    border-radius: 8px;
-    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    color: #050505;
-    padding: 0 10px;
-    box-shadow: 0px 4px 10px #000000b6;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h2 {
-        font-size: 15px;
-        font-weight: 700;
-        color: #65676B;
-        text-transform: uppercase;
-        text-decoration: none solid rgb(101, 103, 107);
-        font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
-    }
-
-    a {
-        font-size: 10px;
-        color: #65676B;
-        margin-bottom: -5px;
-        text-align: center;
-    }
-}
-
-.post-header {
-    width: 100%;
-    line-height: 0px;
-    font-weight: 600;
-    padding: 5px;
-
-    @extend %flexRowCenter;
-    gap: 5px;
-    justify-content: flex-start;
-
-    & section :last-child {
-        font-size: 13px;
-        font-weight: normal;
-        color: #65676B;
-    }
-    img {
-        background-color: lightblue;
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-    }
-}
-
-.postImages {
-    margin: 15px -10px;
-
-    display: flex;
-    flex-direction: row;
-
-    img {
-        width: 50%;
-        border: 1px solid #696969;
-    }
-}
-
-.post-footer {
-    width: 100%;
-    line-height: 0;
-
-    .interact-section {
-        margin: 5px;
-        padding: 3px;
-        border-bottom: 1px solid gray;
-        border-top: 1px solid gray;
-
-        display: grid;
-        gap: 5px;
-        grid-template-columns: repeat(3, 1fr);
-        & :hover { 
-        background-color: #eeeeee; 
-        user-select: none;
-        }
-
-        img { 
-        height: 20px; 
-        object-fit: cover;
-        }
-        .like { 
-        object-position: 50% 33%; 
-        width: 25px; 
-        }
-        .comment { 
-        object-position: 50% 27.9%; 
-        width: 25px; 
-        }
-        .messenger { 
-        object-position: 50% 13%; 
-        width: 19px;
-        }
-
-        section {
-        border-radius: 5px;
-        padding: 0px 10px;
-        @extend %flexRowCenter;
-        align-items: center;
-
-        }
-    }
-
-    .comment-section {
-        margin: 5px;
-        @extend %flexRowCenter;
-        
-        section {
-        width: 100%;
-        border-radius: 30px;
-        padding: 0 10px;
-        background-color: #eeeeee;
-        }
-        
     }
 }
