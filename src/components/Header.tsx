@@ -4,7 +4,7 @@ function Header() {
 
   return (
     <header className="header">
-      <h1>Temperaturfilt</h1>
+      <h1>Temperaturfilt Guiden</h1>
       <p>En guide för att underlätta ditt handarbete!</p>
       <nav>
         <ul>
