@@ -29,7 +29,7 @@ function AboutView() {
                     <li>React Router</li>
                 </ul>
             </div>
-            <h2>Hur jag har arbetat</h2>
+            <h2 className="howIveWorkedTitle">Hur jag har arbetat</h2>
             <p>Jag började på det här projektet innan sommaren 2022 och <span className="italic">vi har lärt oss mycket</span> sedan dess, så jag har börjat om 2 gånger. Första gången var för att jag hade med redux, vilket jag sedan kom på kändes väldigt överflödigt men jag lyckades inte få bort det helt så jag tog bort repot och började om. Andra gången var för att vi nu på hösten hade lärt oss om Vite, så jag ville hellre använda det istället för bara React, så att säga.</p>
             <p>Det första jag började med var att få upp tabellen och visa datan på ett hyffsat bra sätt. Sedan hoppa jag över till sökningen där man hämtar ny data med ett API ifrån <a href="https://www.visualcrossing.com/weather/weather-data-services">visualcrossing.com</a>. Jag sparar datan i localstorage.</p>
             <p>Medans jag jobbade på att kunna välja data att visa i tabellen så insåg jag hur mycket onödig data jag sparar eftersom jag sparade <span className="italic">all data</span> från APIet, utan att användas. Så då skapa jag funktioner för att raffinera datan och bara ha med det jag faktiskt behöver.</p>

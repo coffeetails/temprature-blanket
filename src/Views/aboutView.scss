@@ -1,10 +1,8 @@
 @use '../_base';
 
 .howIveWorkedText {
-    // display: flex;
-    // flex-wrap: wrap;
-    & h2 {
-        min-width: 200px;
+    & .howIveWorkedTitle {
+        line-break: strict;
     }
     .floatie {
         float: left;
