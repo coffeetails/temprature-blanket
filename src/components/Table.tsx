@@ -17,7 +17,7 @@ function Table({displayWeather, displayHour, setDisplayWeather}: Props) {
         const hour: number = +displayHour.substring(0,2);
         
 
-        function updateCheckbox(event) {
+        function updateCheckbox(event: { target: { getAttribute: (arg0: string) => any; }; }) {
             const clickedDate = event.target.getAttribute('data-target');
         	const weatherData = localStorage.getItem("weatherData");
             // console.log(clickedDate);
