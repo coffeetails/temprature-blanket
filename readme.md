@@ -8,6 +8,7 @@ With this you will be able to search for a location and timeperiod and then get 
 - SASS
 - Vite
 - React Router
+- React Snap
 - Fetches weather data from [visualcrossing](https://www.visualcrossing.com/weather/weather-data-services) with REST
 
 ### Version names 
