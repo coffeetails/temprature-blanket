@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "build-snap": "react-snap --dest=dist"
+    "build-snap": "react-snap"
   },
   "dependencies": {
     "react": "^18.2.0",
