@@ -24,6 +24,7 @@ Features I want to add in no particular order:
 - Color reference for tempratures that the user can create and save
 - Colorcode the table rows depending on temprature choosen by the user
 - Download table of data as a PDF
+- English version
 
 ![yarn](./src/assets/yarn.png)
 
