@@ -27,6 +27,7 @@ function AboutView() {
                     <li>SASS</li>
                     <li>Vite</li>
                     <li>React Router</li>
+                    <li>React Snap</li>
                     <li>Hämtar väderdata från <br/><a href="https://www.visualcrossing.com/weather/weather-data-services">visualcrossing</a> genom REST</li>
                 </ul>
             </div>
