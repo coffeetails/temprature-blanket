@@ -10,6 +10,7 @@ function Header() {
         <ul>
           <li><a href="/">Hem</a></li>
           <li><a href="/search">Sök</a></li>
+          <li><a href="/color">Färger</a></li>
           <li><a href="/about">Om sidan</a></li>
         </ul>
       </nav>
