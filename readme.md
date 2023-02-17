@@ -22,7 +22,7 @@ Subido, Bydo, Robandus, Sibbron, OnceEl, Layox and so on.
 Features I want to add in no particular order:
 - inpiration and patterns from [Ravely API](https://www.ravelry.com/groups/ravelry-api)
 - Color reference for tempratures that the user can create and save
-- Colorcode the table rows depending on color choosen for the temperature by the user
+- Colorcode the table rows depending on temprature choosen by the user
 - Download table of data as a PDF
 - English version
 

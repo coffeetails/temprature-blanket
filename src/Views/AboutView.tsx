@@ -1,12 +1,16 @@
 import './aboutView.scss';
 
 import Header from '../components/Header';
+import icons from '../assets/fakePostFB/icons.png'
+import profile from '../assets/fakePostFB/profile.jpg'
+import concept1 from '../assets/fakePostFB/concept1.png'
+import concept2 from '../assets/fakePostFB/concept2.png'
 import yarn from '../assets/yarn.png';
 
 function AboutView() {
 
   return (
-		<section className="aboutpage views">
+		<section className="homepage views">
 		<Header />
         <h1>Om projektet</h1>
         <article className="views__wrapper">
