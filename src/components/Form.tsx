@@ -4,18 +4,21 @@ import { apiKey } from '../key';
 import { Weather } from '../models/models';
 import { useNavigate } from 'react-router-dom';
 import { setWeatherData } from './setWeatherData';
+import { getFirestore } from "firebase/firestore";
 
 interface Props {
 	setDisplayWeather: (displayWeather: Weather | null) => void;
+    firestore: any;
 }
 
 
-function Form({setDisplayWeather}: Props) {
+function Form({setDisplayWeather, firestore}: Props) {
     const navigate = useNavigate();
     const [location, setLocation] = useState("arvika");
     const [timePeriod, setTimePeriod] = useState("last7days");
     const [unit, setUnit] = useState("metric");
     const [userApiKey, setUserApiKey] = useState("");
+    const firestoreDatabase = getFirestore(firestore);
 
     const baseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
     const include = "&include=days%2Chours"

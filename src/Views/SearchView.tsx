@@ -5,9 +5,10 @@ import yarn from '../assets/yarn.png';
 
 interface Props {
 	setDisplayWeather: (displayWeather: Weather | null) => void;
+	firestore: any;
 }
 
-function SearchView({setDisplayWeather}: Props) {
+function SearchView({setDisplayWeather, firestore}: Props) {
 
   return (
 		<section className="searchpage views">
@@ -23,7 +24,7 @@ function SearchView({setDisplayWeather}: Props) {
 					<p>Du skapar en inloggning på visualcrossing och på sidan med kontoinformation så kan du hitta din "{"</>"} key", denna nycken kan du skriva i nedan i fältet för "API Nyckel". Som sagt så är detta inte något du behöver.</p>
 				</details>
 
-				<Form setDisplayWeather={setDisplayWeather} />
+				<Form setDisplayWeather={setDisplayWeather} firestore={firestore} />
 			</article>
 			<img src={yarn} className="yarn" />
 		</section>
