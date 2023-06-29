@@ -11,7 +11,6 @@ import { getAuth, signInAnonymously } from "firebase/auth";
 
 function App() {
     const [displayWeather, setDisplayWeather] = useState<Weather | null>(null);
-    const [uid, setUid] = useState("");
     const firebaseConfig = {
     apiKey: "AIzaSyDZbGulKwxHUkz4Jhb4vFf3HRtA3Fsyu0Y",
     authDomain: "tempraturfilt.firebaseapp.com",
@@ -26,8 +25,6 @@ function App() {
     const auth = getAuth();
     signInAnonymously(auth)
     .then(() => {
-        console.log(auth.currentUser);
-        // setUid();
         // Signed in..
     })
     .catch((error) => {
