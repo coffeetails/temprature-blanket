@@ -100,8 +100,13 @@ function Form({setDisplayWeather, firestore}: Props) {
                 <label htmlFor="farenheight">Farenheight</label>
             </section>
 
-            <label className="form__label" htmlFor="key">API Nyckel (frivillig)</label>
+            <label className="form__label" htmlFor="key">API Nyckel</label>
             <input className="form__input" type="text" id="key" onChange={ (e) => setUserApiKey(e.target.value) }></input>
+            <details>
+                <summary>(Egen API nyckel?)</summary>
+                <p>Om du vill hämta mycket väderdata så kan du skapa din egna nyckel hos <a href="https://www.visualcrossing.com/weather/weather-data-services">visualcrossing.com</a></p>
+                <p>Du skapar en inloggning på visualcrossing och på sidan med kontoinformation så kan du hitta din "{"</>"} key", denna nycken kan du skriva i fältet för "API Nyckel". Som sagt så är detta inte något du behöver.</p>
+            </details>
 
             <button onClick={ submit }>Sök efter tempraturer</button>
         </form>
