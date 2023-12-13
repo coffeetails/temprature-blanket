@@ -47,8 +47,9 @@ function HomeView({displayWeather, setDisplayWeather}: Props) {
 			<article className="views__wrapper">
 				<p>Här nedan ser du redan sökta tidsperioder, till vänster kan du välja plats med antalet dagar samt startdatum. Till höger kan du välja vilket klockslag på dygnet du vill visa tempraturen för.</p>
 				<section className="select-wrapper">
-					<select onChange={(e) => getWeatherValue(e)} className="select selectWeather">
-						<option>Välj väderdata</option>
+					<label id="selectWeatherLabel" htmlFor="selectWeather">Välj väderdata att visa:</label>
+					<select onChange={(e) => getWeatherValue(e)} className="select selectWeather" id="selectWeather">
+						<option> </option>
 						{options}
 					</select>
 					<input type="time" step={60000*60} onChange={ (e) => setDisplayHour(e.target.value) } value={displayHour} className="select selectTime"></input>
