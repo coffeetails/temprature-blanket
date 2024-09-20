@@ -16,14 +16,15 @@ function HomeView({displayWeather, setDisplayWeather}: Props) {
 	const [displayHour, setDisplayHour] = useState("");
 	const weatherData = localStorage.getItem("weatherData");
 	let options = <option>Inga val tillgängliga, gör en sökning</option>;
-
+	console.log("weatherData", !!weatherData);
+	
 	if(displayHour.length == 0) {
 		setDisplayHour("13:00");
 	}
 
-	if(weatherData) {
+	if(weatherData) { // Assumes there is an array in parsed weather data.
 		const parsedWeatherData = JSON.parse(weatherData);
-		// console.log("parsedWeatherData", parsedWeatherData);
+		console.log("parsedWeatherData", parsedWeatherData);
 		options = parsedWeatherData.map((data: Weather, index: string) => {
 			const startDate: string = data.days[0].datetime.slice(5,7) + "/" + data.days[0].datetime.slice(8,10);
 			return (<option value={"weather" + index} key={index}>{data.location}: {data.days.length} dagar från {startDate}</option>);
